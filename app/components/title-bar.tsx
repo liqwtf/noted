@@ -34,10 +34,11 @@ export function TitleBar({ className }: { className?: string }) {
 			className={cn("relative flex h-(--title-bar-height) w-screen", className)}
 			data-tauri-drag-region
 		>
-			{/* <div className="flex-1 pointer-events-none flex items-center">
+			<div className="flex-1 pointer-events-none" />
+			<div className="flex-1 ml-2 pointer-events-none flex items-center">
 				<img className="size-4 mr-2" src="/app-icon.png" alt="App Icon" />
 				<p>noted.</p>
-			</div> */}
+			</div>
 			<fieldset className="ml-auto flex">
 				{buttons.map((button) => (
 					<CaptionButton
