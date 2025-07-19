@@ -1,9 +1,11 @@
 import { Close, Maximize, Minimize, Restore } from "~/components/icons";
+import { useSidebar } from "~/components/ui/sidebar";
 import { cn } from "~/lib/utils";
 import { useTitleBar } from "~/providers/title-bar";
 
 export function TitleBar({ className }: { className?: string }) {
 	const { minimize, toggleMaximize, close, isMaximized } = useTitleBar();
+	const { open } = useSidebar();
 
 	const buttons: {
 		key: string;
@@ -34,10 +36,14 @@ export function TitleBar({ className }: { className?: string }) {
 			className={cn("relative flex h-(--title-bar-height) w-screen", className)}
 			data-tauri-drag-region
 		>
-			<div className="flex-1 pointer-events-none" />
-			<div className="flex-1 ml-2 pointer-events-none flex items-center">
-				<img className="size-4 mr-2" src="/app-icon.png" alt="App Icon" />
-				<p>noted.</p>
+			<div
+				className={cn("w-(--sidebar-width) duration-200 ease-linear", {
+					"w-0": !open,
+				})}
+			/>
+			<div className="flex-1 ml-4 pointer-events-none flex items-center">
+				{/* <img className="size-4 mr-2" src="/app-icon.png" alt="App Icon" /> */}
+				<p>noted</p>
 			</div>
 			<fieldset className="ml-auto flex">
 				{buttons.map((button) => (

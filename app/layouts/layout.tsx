@@ -15,8 +15,8 @@ import {
 } from "~/components/ui/popover";
 import {
 	Sidebar,
-	SidebarProvider,
 	SidebarTrigger,
+	SidebarWrapper,
 } from "~/components/ui/sidebar";
 import {
 	Tooltip,
@@ -26,7 +26,7 @@ import {
 
 export default function Layout() {
 	return (
-		<SidebarProvider
+		<SidebarWrapper
 			style={
 				{
 					"--sidebar-width": "20rem",
@@ -86,7 +86,7 @@ export default function Layout() {
 				<TooltipContent>Toggle Sidebar</TooltipContent>
 			</Tooltip>
 			<main
-				className="flex-1 flex flex-col overflow-hidden mx-auto max-w-6xl pl-8 pr-17"
+				className="relative flex-1 flex flex-col overflow-hidden mx-auto max-w-6xl pl-8 pr-17"
 				style={{
 					width: "calc(100vw - var(--sidebar-width))",
 					maxHeight: "calc(100vh - var(--title-bar-height))",
@@ -94,6 +94,6 @@ export default function Layout() {
 			>
 				<Outlet />
 			</main>
-		</SidebarProvider>
+		</SidebarWrapper>
 	);
 }

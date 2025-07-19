@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@plugin "@tailwindcss/typography";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme {
@@ -8,6 +10,7 @@
   --title-bar-height: 32px;
   --grid-layout-row: 32px 1fr;
   --grid-layout-column: 20rem 1fr;
+  --sidebar-width: 20rem
 }
 
 @theme inline {
